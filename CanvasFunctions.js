@@ -37,11 +37,13 @@ function html_to_xml(html) {
 
 function canvasPPT(iframeRef, canvasRef, css){
   const canvas = canvasRef?.current;
+  
+  // test html that i know works
   const html = `
-<p>this
-<p>is <span style="color:red; font-weight: bold;">not</span>
-<p><i>xml</i>!
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWElEQVQ4jZ2Tu07DQBBFz9jjvEAQqAlQ0CHxERQ0/AItBV9Ew8dQUNBQIho6qCFE4Nhex4u85OHdWAKxzfWsx0d3HpazdGITA4kROjl0ckFrnYJmQlJrKsQZxFOIMyEqIMpADGhSZpikB1hAGsovdxABGuepC/4L0U7xRTG/riG3J8fuvdifPKnmasXp5c2TB1HNPl24gNTnpeqsgmj1eFgayoHvRDWbLBOKJbn9WLGYflCCpmM/2a4Au6/PTjdH+z9lCJQ9vyeq0w/ve2kA3vaOnI6k4Pz+0Y24yP3Gapy+Bw6qdfsCRZfWSWgclCCVXTZu5LZFXKJJ2sepW2KYNCENB3U5pw93zLoDjNK6E7rTFcgbkGYJtiLckxCiw4W1OURsxUE5BokQiQj3JIToVtKwlhsurq+YDYbMBjuU/W3KtT3xIbrpAD7E60lwQohuaMtP8ldI0uMbGfC1r1zyWPUAAAAASUVORK5CYII=">`;
+          <p>this
+          <p>is <span style="color:red; font-weight: bold;">not</span>
+          <p><i>xml</i>!
+          <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWElEQVQ4jZ2Tu07DQBBFz9jjvEAQqAlQ0CHxERQ0/AItBV9Ew8dQUNBQIho6qCFE4Nhex4u85OHdWAKxzfWsx0d3HpazdGITA4kROjl0ckFrnYJmQlJrKsQZxFOIMyEqIMpADGhSZpikB1hAGsovdxABGuepC/4L0U7xRTG/riG3J8fuvdifPKnmasXp5c2TB1HNPl24gNTnpeqsgmj1eFgayoHvRDWbLBOKJbn9WLGYflCCpmM/2a4Au6/PTjdH+z9lCJQ9vyeq0w/ve2kA3vaOnI6k4Pz+0Y24yP3Gapy+Bw6qdfsCRZfWSWgclCCVXTZu5LZFXKJJ2sepW2KYNCENB3U5pw93zLoDjNK6E7rTFcgbkGYJtiLckxCiw4W1OURsxUE5BokQiQj3JIToVtKwlhsurq+YDYbMBjuU/W3KtT3xIbrpAD7E60lwQohuaMtP8ldI0uMbGfC1r1zyWPUAAAAASUVORK5CYII=">`;
 
 
 
