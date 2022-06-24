@@ -1,10 +1,10 @@
 
 
 
-function render_html_to_canvas(html, ctx, x, y, width, height, css ) {
+function render_html_to_canvas(html, ctx, x, y, width, height) {
   var data = "data:image/svg+xml;charset=utf-8,"+'<svg xmlns="http://www.w3.org/2000/svg" width="'+width+'" height="'+height+'">'      +
              '<foreignObject width="100%" height="100%">' +
-             html_to_xml(html, css) +
+             html_to_xml(html) +
              '</foreignObject>' +
              '</svg>';
 
@@ -15,7 +15,7 @@ function render_html_to_canvas(html, ctx, x, y, width, height, css ) {
   img.src = data;
 }
 
-function html_to_xml(html, css) {
+function html_to_xml(html) {
 
   var doc = document.implementation.createHTMLDocument('');
   const styleElement = document.createElement('style');
@@ -33,29 +33,6 @@ function html_to_xml(html, css) {
   // Get well-formed markup
   html = (new XMLSerializer).serializeToString(doc.body);
   return html;
-}
-
-
-function createPPT() {
-
-  domtoimage.toPng(document.getElementById("talent_grid_table"), { "height": 400, "width": 1360 })
-            .then(function(dataUrl) {
-
-              console.log("result", dataUrl);
-              let pres = new PptxGenJS();
-              pres.layout = "LAYOUT_WIDE";
-              let slide = pres.addSlide();
-              slide.addImage({ data: dataUrl, w: "100%", h: 5, sizing: { type: "contain" } });
-              pres.writeFile({ fileName: `hello_slide.pptx` }).then(fileName => {
-                console.log(`created file: ${fileName}`);
-              });
-            })
-            .catch(function(error) {
-              console.error("oops, something went wrong!", error);
-            });
-
-  return false;
-
 }
 
 function canvasPPT(iframeRef, canvasRef, css){
@@ -101,4 +78,27 @@ function canvasPPT(iframeRef, canvasRef, css){
   pres.writeFile({ fileName: `hello_slide.pptx` }).then(fileName => {
     console.log(`created file: ${fileName}`);
   });
+}
+
+
+function createPPT() {
+
+  domtoimage.toPng(document.getElementById("talent_grid_table"), { "height": 400, "width": 1360 })
+            .then(function(dataUrl) {
+
+              console.log("result", dataUrl);
+              let pres = new PptxGenJS();
+              pres.layout = "LAYOUT_WIDE";
+              let slide = pres.addSlide();
+              slide.addImage({ data: dataUrl, w: "100%", h: 5, sizing: { type: "contain" } });
+              pres.writeFile({ fileName: `hello_slide.pptx` }).then(fileName => {
+                console.log(`created file: ${fileName}`);
+              });
+            })
+            .catch(function(error) {
+              console.error("oops, something went wrong!", error);
+            });
+
+  return false;
+
 }
